@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Rails Active Record ( in Chinese) · Weicheng's tech blog</title><meta name="description" content="Rails Active Record ( in Chinese) - Weicheng Zhu"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://wzhu.org/atom.xml" title="Weicheng's tech blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://twitter.com/PortagasZhu" target="_blank" class="nav-list-link">TWITTER</a></li><li class="nav-list-item"><a href="https://github.com/davidzhu001" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Rails Active Record ( in Chinese)</h1><div class="post-info">Aug 10, 2015</div><div class="post-content"><p>Rails的关联是给两个model之间的关系进行明确，从而使常规的操作更加的简单化。</p>
+<h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><p>设想你有个用户model user, 然后你想收集user的个人地址 address。当一个用户有2-3个不同的地址。一个是工作地址另一个是家庭地址。<br>在user的model底下加个关联的address model，这样一来可以方便数据的整理。</p>
+<h2 id="rails所支持的关联"><a href="#rails所支持的关联" class="headerlink" title="rails所支持的关联"></a>rails所支持的关联</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1. belongs_to</div><div class="line">2. has_one</div><div class="line">3. has_many</div><div class="line">4. has_and_belongs_to_many</div><div class="line">4. has_many :through</div><div class="line">5. has_one :through</div></pre></td></tr></table></figure>
+<h3 id="has-one-和-belongs-to-关联"><a href="#has-one-和-belongs-to-关联" class="headerlink" title="has_one 和 belongs_to 关联"></a>has_one 和 belongs_to 关联</h3><blockquote>
+<p>设想我们需要创建一个用户 model user， 每个用户拥有一个 个人信息 personal_profile model.</p>
+</blockquote>
+<p>这个时候，用户user 对 个人信息 personal_profile 的关系就是 <strong>has_one</strong>. 个人信息 personal_profile 对 用户 user 的关系就是 <strong>belongs_to</strong>.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ActiveRecord::Base</span></div><div class="line">  has_one <span class="symbol">:personal_profile</span>, <span class="symbol">dependent:</span> <span class="symbol">:destroy</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonalProfile</span> &lt; ActiveRecord::Base</span></div><div class="line">  belongs_to <span class="symbol">:User</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<hr>
+<p>在个人信息 personal_profile 数据库的表中，我们添加了一个 foreign_key 去发现所关联的信息。</p>
+<h5 id="下面是personal-profile的一个数据表-user-id-则是-个人信息的foreign-key"><a href="#下面是personal-profile的一个数据表-user-id-则是-个人信息的foreign-key" class="headerlink" title="下面是personal_profile的一个数据表. user_id 则是 个人信息的foreign key"></a>下面是personal_profile的一个数据表. user_id 则是 个人信息的foreign key</h5><table>
+<thead>
+<tr>
+<th>id</th>
+<th>user_id</th>
+<th>phone_number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>612-323-2415</td>
+</tr>
+</tbody>
+</table>
+<p><code>注意dependent: :destroy 是为了防止orphan record 孤儿数据的存在。换句话说，就是如果我们删除了一个用户 user 没有删除他的个人信息 personal_profile。
+这样一来，被删除用户 user 的 个人信息 personal_profile 就变成了一个孤儿数据
+rails 5 禁止了孤儿数据的创建，想起请参考以下链接</code><br><a href="guides.rubyonrails.org">链接 link</a></p>
+<h3 id="has-many-和-belongs-to-关联"><a href="#has-many-和-belongs-to-关联" class="headerlink" title="has_many 和 belongs_to 关联"></a>has_many 和 belongs_to 关联</h3><blockquote>
+<p>设想用户user model 有很多地址 addresses. 例如，家庭地址，工作地址等等。</p>
+</blockquote>
+<p>这样我们就可以用 <strong>has many</strong> 和 <strong>belongs_to</strong> 的关系了。<br>这个时候，用户user 对 地址 address 的关系就是 <strong>has_many</strong>. 地址 address 对 用户 user 的关系就是 <strong>belongs_to</strong>.</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ActiveRecord::Base</span></div><div class="line">  has_one <span class="symbol">:addresses</span>, <span class="symbol">dependent:</span> <span class="symbol">:destroy</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Address</span> &lt; ActiveRecord::Base</span></div><div class="line">  belongs_to <span class="symbol">:User</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<hr>
+<h3 id="has-and-belongs-to-many"><a href="#has-and-belongs-to-many" class="headerlink" title="has_and_belongs_to_many"></a>has_and_belongs_to_many</h3><blockquote>
+<p>设想用户 user 可以参加很多的 课程班 courses. 一个课程班 course 有很多的用户 users。</p>
+</blockquote>
+<p>这个时候，无论用户user 对课程班 course的关系 还是课程班 course 对用户 user的关系，即是has_many 又是 belongs_to_many。换句话说，课程班有很多的用户，用户可以参加课程班。</p>
+<p>这是如果只是在table 上加个 foreign key 已经满足不了我们的需求了。<br>这个时候我们需要一个 join table可以包含 两个model的foreign keys。</p>
+<table>
+<thead>
+<tr>
+<th>user_id</th>
+<th>course_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>612-323-2415</td>
+</tr>
+</tbody>
+</table>
+<p><code>针对has_and_belongs_to_many， join table只是起到一个连接的作用。这时id起到可有可无的作用。 如果想延伸join table的用处。请用 has_many: :through</code></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> &lt; ActiveRecord::Base</span></div><div class="line">  has_and_belongs_to_many <span class="symbol">:course</span>, <span class="symbol">dependent:</span> <span class="symbol">:destroy</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Course</span> &lt; ActiveRecord::Base</span></div><div class="line">  has_and_belongs_to_many <span class="symbol">:User</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h3 id="has-many-through"><a href="#has-many-through" class="headerlink" title="has_many :through"></a>has_many :through</h3><p>has_many through 是对 has_and_belongs_to_many 方法的延伸。has_and_belongs_to_many只需要一个 join table，然后has many through 需要一个 join table 和join model。</p>
+<p>#未完待续</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2015/08/11/服务器 SSH 登录设置/" class="prev">PREV</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'wzhublog';
+var disqus_identifier = '2015/08/10/rails-Active-Record-Associations/';
+var disqus_title = 'Rails Active Record ( in Chinese)';
+var disqus_url = 'http://wzhu.org/2015/08/10/rails-Active-Record-Associations/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//wzhublog.disqus.com/count.js" async></script><div class="copyright"><p>© 2013 - 2017 <a href="http://wzhu.org">Weicheng Zhu</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-86660912-1",'auto');ga('send','pageview');</script></body></html>
