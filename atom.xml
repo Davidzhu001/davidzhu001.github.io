@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://wzhu.org/"/>
-  <updated>2017-03-17T16:58:08.000Z</updated>
-  <id>http://wzhu.org/</id>
+  <link href="http://yoursite.com/"/>
+  <updated>2017-04-18T19:31:53.000Z</updated>
+  <id>http://yoursite.com/</id>
   
   <author>
     <name>Weicheng Zhu</name>
@@ -16,9 +16,52 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Webpacker Rails的小讲</title>
+    <link href="http://yoursite.com/2017/04/18/webpacker-rails%E7%9A%84%E5%B0%8F%E8%AE%B2/"/>
+    <id>http://yoursite.com/2017/04/18/webpacker-rails的小讲/</id>
+    <published>2017-04-18T05:00:00.000Z</published>
+    <updated>2017-04-18T19:31:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Webpacker-简介"><a href="#Webpacker-简介" class="headerlink" title="Webpacker 简介"></a>Webpacker 简介</h2><blockquote>
+<p>随着rails的广泛使用，大家可能意识到了。Rails对JavaScript的bundling还是有许多的不足的地方。但是，在不久rails讲支持 webpack 的使用在一个叫webpacker 的gem</p>
+</blockquote>
+<hr>
+<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><h4 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. Rails 5+ （rails 4.2 +）</div><div class="line">2. Node js</div><div class="line">3. Yarn （NPM的取代）</div><div class="line">4. webpack</div></pre></td></tr></table></figure>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><h4 id="新建rails"><a href="#新建rails" class="headerlink" title="新建rails"></a>新建rails</h4><p>当你的rails 版本是在5.1+的时候可以在 rails new的时候加入以下的条件 (ruby 要求 2.6.11 <a href="http://weblog.rubyonrails.org/2017/3/20/Rails-5-1-rc1/" target="_blank" rel="external">详情</a>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">rails new aappnamepp --webpack --force</div><div class="line">rails new appname --webpack=react --force</div><div class="line">rails new appname --webpack=angular --force</div><div class="line">rails new appname --webpack=vue --force</div></pre></td></tr></table></figure>
+<p>如果是以前的版本的rails 可以先创建rails app</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. rails new app</div><div class="line">2. rails webpacker:install</div><div class="line">3. rails webpacker:install:(vue，react, angular 可以选一个自己熟悉的前端)</div></pre></td></tr></table></figure>
+<p>仔细看看rails 为我们创建了那些文件</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">Creating javascript app source directory</div><div class="line">      create  app/javascript</div><div class="line">      create  app/javascript/packs/application.js</div><div class="line">Copying binstubs</div><div class="line">       exist  bin</div><div class="line">      create  bin/webpack-dev-server</div><div class="line">      create  bin/webpack-watcher</div><div class="line">      create  bin/webpack</div><div class="line">      create  bin/yarn</div><div class="line">Copying webpack core config and loaders</div><div class="line">      create  config/webpack</div><div class="line">      create  config/webpack/configuration.js</div><div class="line">      create  config/webpack/development.js</div><div class="line">      create  config/webpack/development.server.js</div><div class="line">      create  config/webpack/development.server.yml</div><div class="line">      create  config/webpack/paths.yml</div><div class="line">      create  config/webpack/production.js</div><div class="line">      create  config/webpack/shared.js</div><div class="line">      create  config/webpack/test.js</div><div class="line">      create  config/webpack/loaders</div><div class="line">      create  config/webpack/loaders/assets.js</div><div class="line">      create  config/webpack/loaders/babel.js</div><div class="line">      create  config/webpack/loaders/coffee.js</div><div class="line">      create  config/webpack/loaders/erb.js</div><div class="line">      create  config/webpack/loaders/sass.js</div><div class="line">      create  .postcssrc.yml</div><div class="line">      append  .gitignore</div></pre></td></tr></table></figure>
+<hr>
+<ol>
+<li>是在app/javascript文件夹底下的工作环境跟app/assets/javascript是有区别的.</li>
+<li>bin文件夹底下的commands 如果注意的话，webpack-dev-server设置了一个不同的server</li>
+<li>剩下的是在config底下的webpack的配置。可以设置你的不同的loader和工作的环境等等一切前端需要设置的。</li>
+</ol>
+<h3 id="关于server的一些小提示"><a href="#关于server的一些小提示" class="headerlink" title="关于server的一些小提示"></a>关于server的一些小提示</h3><blockquote>
+<ol>
+<li>rails s #是开启你的rails sercer port 3000</li>
+<li>./bin/webpack-dev-server #开启的你Javascript的server port 8080</li>
+</ol>
+</blockquote>
+<h3 id="当我们run-assets-precompile的时候-webpacker-compile-是被勾起来一起运行了"><a href="#当我们run-assets-precompile的时候-webpacker-compile-是被勾起来一起运行了" class="headerlink" title="当我们run assets:precompile的时候 webpacker:compile 是被勾起来一起运行了"></a>当我们run assets:precompile的时候 webpacker:compile 是被勾起来一起运行了</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QQ 群：231387249 (Rails 交流主要)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Webpacker-简介&quot;&gt;&lt;a href=&quot;#Webpacker-简介&quot; class=&quot;headerlink&quot; title=&quot;Webpacker 简介&quot;&gt;&lt;/a&gt;Webpacker 简介&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;随着rails的广泛使用，大家可能
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Machine Learning Day One (in English) --rookie</title>
-    <link href="http://wzhu.org/2017/01/01/machine-learning-day-one/"/>
-    <id>http://wzhu.org/2017/01/01/machine-learning-day-one/</id>
+    <link href="http://yoursite.com/2017/01/01/machine-learning-day-one/"/>
+    <id>http://yoursite.com/2017/01/01/machine-learning-day-one/</id>
     <published>2017-01-01T20:26:21.000Z</published>
     <updated>2017-03-17T16:58:08.000Z</updated>
     
@@ -59,14 +102,14 @@
     </summary>
     
     
-      <category term="machine_learning" scheme="http://wzhu.org/tags/machine-learning/"/>
+      <category term="machine_learning" scheme="http://yoursite.com/tags/machine-learning/"/>
     
   </entry>
   
   <entry>
     <title>服务器 SSH 登录设置</title>
-    <link href="http://wzhu.org/2015/09/12/%E6%9C%8D%E5%8A%A1%E5%99%A8%20SSH%20%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE/"/>
-    <id>http://wzhu.org/2015/09/12/服务器 SSH 登录设置/</id>
+    <link href="http://yoursite.com/2015/09/12/%E6%9C%8D%E5%8A%A1%E5%99%A8%20SSH%20%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://yoursite.com/2015/09/12/服务器 SSH 登录设置/</id>
     <published>2015-09-12T05:00:00.000Z</published>
     <updated>2017-04-03T20:13:51.000Z</updated>
     
@@ -115,8 +158,8 @@
   
   <entry>
     <title>Rails Active Record 2  ( in Chinese)</title>
-    <link href="http://wzhu.org/2015/08/11/rails-Active-Record-Associations-2/"/>
-    <id>http://wzhu.org/2015/08/11/rails-Active-Record-Associations-2/</id>
+    <link href="http://yoursite.com/2015/08/11/rails-Active-Record-Associations-2/"/>
+    <id>http://yoursite.com/2015/08/11/rails-Active-Record-Associations-2/</id>
     <published>2015-08-11T05:00:00.000Z</published>
     <updated>2017-03-17T16:58:08.000Z</updated>
     
@@ -196,8 +239,8 @@
   
   <entry>
     <title>Rails Active Record ( in Chinese)</title>
-    <link href="http://wzhu.org/2015/08/10/rails-Active-Record-Associations/"/>
-    <id>http://wzhu.org/2015/08/10/rails-Active-Record-Associations/</id>
+    <link href="http://yoursite.com/2015/08/10/rails-Active-Record-Associations/"/>
+    <id>http://yoursite.com/2015/08/10/rails-Active-Record-Associations/</id>
     <published>2015-08-10T05:00:00.000Z</published>
     <updated>2017-03-17T16:58:08.000Z</updated>
     
