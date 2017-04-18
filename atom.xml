@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://davidzhu001.github.io/"/>
   <updated>2017-04-18T19:31:53.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://davidzhu001.github.io/</id>
   
   <author>
     <name>Weicheng Zhu</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Webpacker Rails的小讲</title>
-    <link href="http://yoursite.com/2017/04/18/webpacker-rails%E7%9A%84%E5%B0%8F%E8%AE%B2/"/>
-    <id>http://yoursite.com/2017/04/18/webpacker-rails的小讲/</id>
+    <link href="http://davidzhu001.github.io/2017/04/18/webpacker-rails%E7%9A%84%E5%B0%8F%E8%AE%B2/"/>
+    <id>http://davidzhu001.github.io/2017/04/18/webpacker-rails的小讲/</id>
     <published>2017-04-18T05:00:00.000Z</published>
     <updated>2017-04-18T19:31:53.000Z</updated>
     
@@ -60,8 +60,8 @@
   
   <entry>
     <title>Machine Learning Day One (in English) --rookie</title>
-    <link href="http://yoursite.com/2017/01/01/machine-learning-day-one/"/>
-    <id>http://yoursite.com/2017/01/01/machine-learning-day-one/</id>
+    <link href="http://davidzhu001.github.io/2017/01/01/machine-learning-day-one/"/>
+    <id>http://davidzhu001.github.io/2017/01/01/machine-learning-day-one/</id>
     <published>2017-01-01T20:26:21.000Z</published>
     <updated>2017-03-17T16:58:08.000Z</updated>
     
@@ -102,14 +102,14 @@
     </summary>
     
     
-      <category term="machine_learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+      <category term="machine_learning" scheme="http://davidzhu001.github.io/tags/machine-learning/"/>
     
   </entry>
   
   <entry>
     <title>服务器 SSH 登录设置</title>
-    <link href="http://yoursite.com/2015/09/12/%E6%9C%8D%E5%8A%A1%E5%99%A8%20SSH%20%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE/"/>
-    <id>http://yoursite.com/2015/09/12/服务器 SSH 登录设置/</id>
+    <link href="http://davidzhu001.github.io/2015/09/12/%E6%9C%8D%E5%8A%A1%E5%99%A8%20SSH%20%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://davidzhu001.github.io/2015/09/12/服务器 SSH 登录设置/</id>
     <published>2015-09-12T05:00:00.000Z</published>
     <updated>2017-04-03T20:13:51.000Z</updated>
     
@@ -158,8 +158,8 @@
   
   <entry>
     <title>Rails Active Record 2  ( in Chinese)</title>
-    <link href="http://yoursite.com/2015/08/11/rails-Active-Record-Associations-2/"/>
-    <id>http://yoursite.com/2015/08/11/rails-Active-Record-Associations-2/</id>
+    <link href="http://davidzhu001.github.io/2015/08/11/rails-Active-Record-Associations-2/"/>
+    <id>http://davidzhu001.github.io/2015/08/11/rails-Active-Record-Associations-2/</id>
     <published>2015-08-11T05:00:00.000Z</published>
     <updated>2017-03-17T16:58:08.000Z</updated>
     
@@ -239,8 +239,8 @@
   
   <entry>
     <title>Rails Active Record ( in Chinese)</title>
-    <link href="http://yoursite.com/2015/08/10/rails-Active-Record-Associations/"/>
-    <id>http://yoursite.com/2015/08/10/rails-Active-Record-Associations/</id>
+    <link href="http://davidzhu001.github.io/2015/08/10/rails-Active-Record-Associations/"/>
+    <id>http://davidzhu001.github.io/2015/08/10/rails-Active-Record-Associations/</id>
     <published>2015-08-10T05:00:00.000Z</published>
     <updated>2017-03-17T16:58:08.000Z</updated>
     
