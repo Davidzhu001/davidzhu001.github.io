@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.wzhu.org/"/>
+  <link href="http://yoursite.com/"/>
   <updated>2017-04-18T19:31:53.000Z</updated>
-  <id>http://blog.wzhu.org/</id>
+  <id>http://yoursite.com/</id>
   
   <author>
     <name>Weicheng Zhu</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Webpacker Rails的小讲</title>
-    <link href="http://blog.wzhu.org/2017/04/18/webpacker-rails%E7%9A%84%E5%B0%8F%E8%AE%B2/"/>
-    <id>http://blog.wzhu.org/2017/04/18/webpacker-rails的小讲/</id>
+    <link href="http://yoursite.com/2017/04/18/webpacker-rails%E7%9A%84%E5%B0%8F%E8%AE%B2/"/>
+    <id>http://yoursite.com/2017/04/18/webpacker-rails的小讲/</id>
     <published>2017-04-18T05:00:00.000Z</published>
     <updated>2017-04-18T19:31:53.000Z</updated>
     
@@ -60,8 +60,8 @@
   
   <entry>
     <title>Machine Learning Day One (in English) --rookie</title>
-    <link href="http://blog.wzhu.org/2017/01/01/machine-learning-day-one/"/>
-    <id>http://blog.wzhu.org/2017/01/01/machine-learning-day-one/</id>
+    <link href="http://yoursite.com/2017/01/01/machine-learning-day-one/"/>
+    <id>http://yoursite.com/2017/01/01/machine-learning-day-one/</id>
     <published>2017-01-01T20:26:21.000Z</published>
     <updated>2017-03-17T16:58:08.000Z</updated>
     
@@ -102,14 +102,71 @@
     </summary>
     
     
-      <category term="machine_learning" scheme="http://blog.wzhu.org/tags/machine-learning/"/>
+      <category term="machine_learning" scheme="http://yoursite.com/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx multiple apps in one server</title>
+    <link href="http://yoursite.com/2016/04/18/multiple-server/"/>
+    <id>http://yoursite.com/2016/04/18/multiple-server/</id>
+    <published>2016-04-18T05:00:00.000Z</published>
+    <updated>2017-05-11T16:47:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ngnix和pssenger的剪辑"><a href="#Ngnix和pssenger的剪辑" class="headerlink" title="Ngnix和pssenger的剪辑"></a>Ngnix和pssenger的剪辑</h2><p><a href="http://tengine.taobao.org/book/" target="_blank" rel="external">nginx由于出色的性能，在世界范围内受到了越来越多人的关注，在淘宝内部它更是被广泛的使用，众多的开发以及运维同学都迫切的想要了解nginx模块的开发以及它的内部原理，但是国内却没有一本关于这方面的书，源于此我们决定自己来写一本。本书的作者为淘宝核心系统服务器平台组的成员，本书写作的思路是从模块开发逐渐过渡到nginx原理剖析。书籍的内容会定期在这里更新，欢迎大家提出宝贵意见，不管是本书的内容问题，还是字词错误，都欢迎大家提交issue(章节标题的左侧有评注按钮)，我们会及时的跟进。</a></p>
+<ol>
+<li>nginx是接待员，客户端访问网页时先通过它</li>
+<li>pssenger和unicorn 是你的rails应用 的管理。相当于在本地的rails server</li>
+</ol>
+<h2 id="配置基本信息"><a href="#配置基本信息" class="headerlink" title="配置基本信息"></a>配置基本信息</h2><table>
+<thead>
+<tr>
+<th>配置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rails</td>
+</tr>
+<tr>
+<td>Nginx</td>
+</tr>
+<tr>
+<td>Passenger </td>
+</tr>
+</tbody>
+</table>
+<h2 id="Nginx-和-Passenger-安装"><a href="#Nginx-和-Passenger-安装" class="headerlink" title="Nginx 和 Passenger 安装"></a>Nginx 和 Passenger 安装</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7</div><div class="line">sudo apt-get install -y apt-transport-https ca-certificates</div><div class="line">sudo sh -c &apos;echo deb https://oss-binaries.phusionpassenger.com/apt/passenger xenial main &gt; /etc/apt/sources.list.d/passenger.list&apos;</div><div class="line">sudo apt-get update </div><div class="line">sudo apt-get install -y nginx-extras passenger</div></pre></td></tr></table></figure>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>启动Nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service nginx start</div></pre></td></tr></table></figure></p>
+<p>打开你的ip，或者网站。你会看到 nginx的运行</p>
+<h4 id="配置passenger在Nginx"><a href="#配置passenger在Nginx" class="headerlink" title="配置passenger在Nginx"></a>配置passenger在Nginx</h4><p>输入一下指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano /etc/nginx/nginx.conf</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#找到 </div><div class="line"># include /etc/nginx/passenger.conf;</div><div class="line">去掉#</div></pre></td></tr></table></figure>
+<h4 id="配置Passenger"><a href="#配置Passenger" class="headerlink" title="配置Passenger"></a>配置Passenger</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">输入</div><div class="line">sudo nano /etc/nginx/passenger.conf</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">这一行是制定你的ruby path，请参考你的ruby管理</div><div class="line">passenger_ruby /usr/bin/ruby;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service nginx restart</div></pre></td></tr></table></figure>
+<h4 id="设想你使用-capistrano"><a href="#设想你使用-capistrano" class="headerlink" title="设想你使用 capistrano"></a>设想你使用 capistrano</h4><p>添加<br><code>gem &#39;capistrano-passenger&#39; #gemfile
+require &#39;capistrano/passenger&#39; #Capfile</code></p>
+<h4 id="关于passenger和rails的配置此处省略"><a href="#关于passenger和rails的配置此处省略" class="headerlink" title="关于passenger和rails的配置此处省略"></a>关于passenger和rails的配置此处省略</h4><h4 id="设置Nginx"><a href="#设置Nginx" class="headerlink" title="设置Nginx"></a>设置Nginx</h4><p>找到你的 /etc/nginx/sites-enabled/default<br>或者 使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/nginx/sites-available</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">创建两个conf文件</div><div class="line"></div><div class="line">one.conf</div><div class="line">server &#123;</div><div class="line">  listen 80;</div><div class="line">  server_name node_app.com</div><div class="line"></div><div class="line">  location / &#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">two.conf</div><div class="line">server &#123;</div><div class="line">  listen 80;</div><div class="line">  server_name app</div><div class="line"></div><div class="line">  location / &#123;</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>报错的时候，确保你去掉</p>
+<pre><code>` listen [::]:80 ipv6only=on;`
+</code></pre><p>语言总结不行，大意在这。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QQ 群：231387249 (Rails 交流主要)</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Ngnix和pssenger的剪辑&quot;&gt;&lt;a href=&quot;#Ngnix和pssenger的剪辑&quot; class=&quot;headerlink&quot; title=&quot;Ngnix和pssenger的剪辑&quot;&gt;&lt;/a&gt;Ngnix和pssenger的剪辑&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;h
+    
+    </summary>
+    
     
   </entry>
   
   <entry>
     <title>服务器 SSH 登录设置</title>
-    <link href="http://blog.wzhu.org/2015/09/12/%E6%9C%8D%E5%8A%A1%E5%99%A8%20SSH%20%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE/"/>
-    <id>http://blog.wzhu.org/2015/09/12/服务器 SSH 登录设置/</id>
+    <link href="http://yoursite.com/2015/09/12/%E6%9C%8D%E5%8A%A1%E5%99%A8%20SSH%20%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://yoursite.com/2015/09/12/服务器 SSH 登录设置/</id>
     <published>2015-09-12T05:00:00.000Z</published>
     <updated>2017-04-03T20:13:51.000Z</updated>
     
@@ -158,8 +215,8 @@
   
   <entry>
     <title>Rails Active Record 2  ( in Chinese)</title>
-    <link href="http://blog.wzhu.org/2015/08/11/rails-Active-Record-Associations-2/"/>
-    <id>http://blog.wzhu.org/2015/08/11/rails-Active-Record-Associations-2/</id>
+    <link href="http://yoursite.com/2015/08/11/rails-Active-Record-Associations-2/"/>
+    <id>http://yoursite.com/2015/08/11/rails-Active-Record-Associations-2/</id>
     <published>2015-08-11T05:00:00.000Z</published>
     <updated>2017-03-17T16:58:08.000Z</updated>
     
@@ -239,8 +296,8 @@
   
   <entry>
     <title>Rails Active Record ( in Chinese)</title>
-    <link href="http://blog.wzhu.org/2015/08/10/rails-Active-Record-Associations/"/>
-    <id>http://blog.wzhu.org/2015/08/10/rails-Active-Record-Associations/</id>
+    <link href="http://yoursite.com/2015/08/10/rails-Active-Record-Associations/"/>
+    <id>http://yoursite.com/2015/08/10/rails-Active-Record-Associations/</id>
     <published>2015-08-10T05:00:00.000Z</published>
     <updated>2017-03-17T16:58:08.000Z</updated>
     
