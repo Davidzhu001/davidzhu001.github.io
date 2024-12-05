@@ -7,7 +7,7 @@ import { markdownMathPlugin } from '@vuepress/plugin-markdown-math'
 
 
 export default defineUserConfig({
-  title: "vuepress-theme-reco",
+  title: "Davidzhu001",
   description: "Just playing around",
   bundler: viteBundler(),
   plugins: [
@@ -23,7 +23,7 @@ export default defineUserConfig({
   // bundler: webpackBundler(),
   theme: recoTheme({
     logo: "/logo.png",
-    author: "reco_luan",
+    author: "Davidzhu001",
     authorAvatar: "/head.png",
     docsRepo: "https://github.com/vuepress-reco/vuepress-theme-reco-next",
     docsBranch: "main",
@@ -34,14 +34,28 @@ export default defineUserConfig({
     navbar: [
       { text: "Home", link: "/" },
       { text: "GameDev", link: "/series/gamedev/gamedev.md" },
-      { text: "Tags", link: "/tags/tag1/1.html" },
-      {
-        text: "Docs",
+      { text: "Backend",
         children: [
-          { text: "vuepress-reco", link: "/docs/theme-reco/theme" },
-          { text: "vuepress-theme-reco", link: "/blogs/other/guide" },
+        { text: "Ruby on Rails",  link: "/series/frontend/vue"  },
+        { text: "Golang", link: "/series/frontend/react"  },
+        { text: "Rust", link: "/series/frontend/flutter"  },
+        { text: "C++", link: "/series/frontend/electron"  },
+        { text: "Java", link: "/series/frontend/electron"  },
+      ], },
+      {
+        text: "Frontened",
+        children: [
+          { text: "Vue",  link: "/series/frontend/vue"  },
+          { text: "React", link: "/series/frontend/react"  },
+          { text: "Flutter", link: "/series/frontend/flutter"  },
+          { text: "Electron", link: "/series/frontend/electron"  },
+
         ],
       },
+      { text: "Resources", link: "/series/gamedev/gamedev.md" },
+
+      { text: "Resume", link: "/series/gamedev/gamedev.md" },
+
     ],
 
   }),
