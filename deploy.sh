@@ -28,40 +28,22 @@ else
   msg='来自github actions的自动部署'
   githubUrl=https://Davidzhu001:${GITHUB_TOKEN}@github.com/Davidzhu001/davidzhu001.github.io.git
   git config --global user.name "Davidzhu001"
-  git config --global user.email "your-email@example.com" # 请替换为你的邮箱
+  git config --global user.email "weicheng.zhu@icloud.com"
 fi
-git init
-git add -A
-git commit -m "${msg}"
-git push -f $githubUrl master:gh-pages # 推送到github
 
-cd - # 退回开始所在目录
+# 初始化一个新的Git仓库
+git init
+# 添加所有文件到Git
+git add -A
+# 提交更改
+git commit -m "${msg}"
+
+# 强制推送到指定的GitHub Pages分支
+git push -f $githubUrl master:gh-pages
+
+# 返回到之前的目录
+cd -
+# 删除生成的dist文件夹
 rm -rf docs/.vuepress/dist
 
 #------------------------------------------
-
-# 打包代码同步到 gitee gh-pages分支
-if [ -z "$SSH_PRIVATE_KEY" ]; then
-  echo '如果是空字符串，则不部署到gitee'
-else
-  # url访问目录
-  initDist "module.exports = '/'"
-  # 生成静态文件
-  npm run build
-  # 进入生成的文件夹
-  cd docs/.vuepress/dist
-
-  giteeUrl=git@gitee.com:oddfar/notes.git  # gitee 仓库ssh地址
-  
-  git config --global user.name "Davidzhu001"
-  git config --global user.email "your-email@example.com" # 请替换为你的邮箱
-  git init
-  git add -A
-  git commit -m "来自github actions的自动部署"
-  git push -f $giteeUrl master:gh-pages
-  
-  cd - # 退回开始所在目录
-  rm -rf docs/.vuepress/dist
-  # 删除秘钥
-  rm -rf ~/.ssh
-fi
