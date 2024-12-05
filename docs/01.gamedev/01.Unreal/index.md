@@ -1,7 +1,7 @@
 ---
 title: Unreal
 sidebar: true
-permalink: /unreal
+permalink: /gamedev/unreal
 date: 2024-12-04 15:32:51
 ---
 
