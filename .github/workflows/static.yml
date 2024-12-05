@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload the build output
-          path: 'docs/.vuepress/dist'  # 确保这里的路径是构建输出目录
+          path: '.vuepress/dist'  # 确保这里的路径是构建输出目录
 
       - name: Deploy to GitHub Pages
         id: deployment
