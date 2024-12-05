@@ -1,1 +1,94 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Weicheng's tech blog</title><meta name="description" content="A Blog Powered By Hexo"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://blog.wzhu.org/atom.xml" title="Weicheng's tech blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://twitter.com/PortagasZhu" target="_blank" class="nav-list-link">TWITTER</a></li><li class="nav-list-item"><a href="https://github.com/davidzhu001" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="archive"><h2 class="archive-year">2017</h2><div class="post-item"><div class="post-info">Apr 18, 2017</div><a href="/2017/04/18/webpacker-rails的小讲/" class="post-title-link">Webpacker Rails的小讲</a></div><div class="post-item"><div class="post-info">Jan 1, 2017</div><a href="/2017/01/01/machine-learning-day-one/" class="post-title-link">Machine Learning Day One (in English) --rookie</a></div><h2 class="archive-year">2016</h2><div class="post-item"><div class="post-info">Apr 18, 2016</div><a href="/2016/04/18/multiple-server/" class="post-title-link">Nginx multiple apps in one server</a></div><h2 class="archive-year">2015</h2><div class="post-item"><div class="post-info">Sep 12, 2015</div><a href="/2015/09/12/服务器 SSH 登录设置/" class="post-title-link">服务器 SSH 登录设置</a></div><div class="post-item"><div class="post-info">Aug 11, 2015</div><a href="/2015/08/11/rails-Active-Record-Associations-2/" class="post-title-link">Rails Active Record 2  ( in Chinese)</a></div><div class="post-item"><div class="post-info">Aug 10, 2015</div><a href="/2015/08/10/rails-Active-Record-Associations/" class="post-title-link">Rails Active Record ( in Chinese)</a></div></div></section><footer><div class="paginator"></div><div class="copyright"><p>© 2013 - 2017 <a href="http://blog.wzhu.org">Weicheng Zhu</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-86660912-1",'auto');ga('send','pageview');</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不合格分布图表</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>不合格分布 - 柱状图</h2>
+    <canvas id="barChart" width="400" height="200"></canvas>
+    <h2>不合格分布 - 饼图</h2>
+    <canvas id="pieChart" width="400" height="200"></canvas>
+
+    <script>
+        const labels = [
+            '囊长', '囊短', '体长', '体短', '帽长', '帽短', '锁合',
+            '体口', '帽口', '体变形', '帽变形', '体黑点', '体气泡',
+            '套黑点', '套气泡', '帽黑点', '帽气泡', '体顶凸', '体顶凹',
+            '帽顶凸', '帽顶凹', '头黑点', '头凹凸', '体混色', '帽混色', '其他'
+        ];
+
+        const defectData = [
+            12, 9, 15, 5, 8, 7, 10,
+            6, 4, 11, 13, 3, 14,
+            2, 1, 16, 18, 20, 19,
+            17, 22, 21, 23, 24, 25, 26
+        ];
+
+        // Bar Chart
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '不合格数量',
+                    data: defectData,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Pie Chart
+        const pieCtx = document.getElementById('pieChart').getContext('2d');
+        const pieChart = new Chart(pieCtx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: defectData,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                    ]
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
