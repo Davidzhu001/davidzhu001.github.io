@@ -1,12 +1,12 @@
 module.exports = [
   { text: 'Profile', link: '/' },
   {
-    text: 'Unreal', link: '/company/'
+    text: 'Unreal', link: '/unreal/'
   },
   {
-    text: 'Backend', link: '/solution/'
+    text: 'Backend', link: '/backend/'
   },
-  { text: 'Mobile', link: '/about/' },
-  { text: 'Desktop', link: '/spider/' },
-  { text: 'Web', link: '/spider/' }
+  { text: 'Mobile', link: '/mobile/' },
+  { text: 'Desktop', link: '/desktop/' },
+  { text: 'Web', link: '/web/' }
 ]
