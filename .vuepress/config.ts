@@ -25,7 +25,7 @@ export default defineUserConfig({
     logo: "/logo.png",
     author: "Davidzhu001",
     authorAvatar: "/head.png",
-    docsRepo: "https://github.com/vuepress-reco/vuepress-theme-reco-next",
+    docsRepo: "https://github.com/davidzhu001",
     docsBranch: "main",
     docsDir: "example",
     lastUpdatedText: "",
@@ -53,9 +53,6 @@ export default defineUserConfig({
         ],
       },
       { text: "Resources", link: "/series/gamedev/gamedev.md" },
-
-      { text: "Resume", link: "/series/gamedev/gamedev.md" },
-
     ],
 
   }),
