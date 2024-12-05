@@ -10,7 +10,7 @@ initDist(){
 #------------------------------------------
 
 # url访问目录，这个是你 github 仓库的名字
-initDist "module.exports = '/notes/'"
+initDist "module.exports = '/'"
 
 # 生成静态文件
 npm run build
