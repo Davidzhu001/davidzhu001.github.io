@@ -20,5 +20,3 @@
 
 - **Replicated**: 属性将在网络上自动复制。
 - **ReplicatedUsing**: 使用指定的函数进行复制通知。
-  ```cpp
-  UPROPERTY(ReplicatedUsing=OnRep_FunctionName)
