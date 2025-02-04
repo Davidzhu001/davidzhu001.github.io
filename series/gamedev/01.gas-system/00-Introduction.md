@@ -1,5 +1,5 @@
 ---
-title: 0.Gameplay Ability System
+title: 0.GASIntro
 date: 2024-12-04 15:32:51
 ---
 

@@ -33,7 +33,7 @@ export default defineUserConfig({
 
     navbar: [
       { text: "Home", link: "/" },
-      { text: "GameDev", link: "/series/gamedev/gamedev.md" },
+      { text: "GameDev", link: "/series/gamedev/00.unreal-basics/00-math.md" },
       { text: "Backend",
         children: [
         { text: "Ruby on Rails",  link: "/series/frontend/vue"  },
