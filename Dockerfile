@@ -20,5 +20,4 @@ COPY . .
 # 暴露端口
 EXPOSE 8080
 
-# 启动 VuePress
 CMD ["yarn", "dev"]
