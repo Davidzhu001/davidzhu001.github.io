@@ -1,19 +1,25 @@
 ---
-title: unreal
+title: 1.Outline
 date: 2024-12-04 15:32:51
 ---
-
-## 路线图
-
-我一直想学习Unreal 5，现在似乎是开始我新的学习旅程的好时机。
-
-做笔记和写论文是巩固所学知识并验证理解的极好方法。
 
 ## 学习要点
 
 我的学习路径与众不同，因为我没有销售任何东西的意图。我会记录下重要的内容，并坚持不懈，直到完全理解这些概念。
 
-### Landscape Material Concepts
+### 关键的学习点
+
+- [x] 1. 基础材质学习
+
+- [x] 2. Material 常用的Function
+
+- [x] 3. Material的层级，Layers
+
+- [x] 4. Auto Landscape Material
+
+- [ ] 5. Landscape with foliage
+
+## 基础材质的笔记
 
 1. Base Color: 这是应用于Landscape的材质的基本颜色。它定义了地形表面的整体外观和感觉。
 
