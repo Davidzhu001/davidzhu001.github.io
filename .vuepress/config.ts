@@ -19,7 +19,7 @@ export default defineUserConfig({
       // 选项
     }),
   ],
- 
+
   // bundler: webpackBundler(),
   theme: recoTheme({
     logo: "/logo.png",
@@ -34,21 +34,23 @@ export default defineUserConfig({
     navbar: [
       { text: "Home", link: "/" },
       { text: "GameDev", link: "/series/gamedev/00.unreal-basics/00-math.md" },
-      { text: "Backend",
+      {
+        text: "Backend",
         children: [
-        { text: "Ruby on Rails",  link: "/series/frontend/vue"  },
-        { text: "Golang", link: "/series/frontend/react"  },
-        { text: "Rust", link: "/series/frontend/flutter"  },
-        { text: "C++", link: "/series/frontend/electron"  },
-        { text: "Java", link: "/series/frontend/electron"  },
-      ], },
+          { text: "Ruby on Rails", link: "/series/frontend/vue" },
+          { text: "Golang", link: "/series/frontend/react" },
+          { text: "Rust", link: "/series/rust/00-rustbasics.md" },
+          { text: "C++", link: "/series/frontend/electron" },
+          { text: "Java", link: "/series/frontend/electron" },
+        ],
+      },
       {
         text: "Frontened",
         children: [
-          { text: "Vue",  link: "/series/frontend/vue"  },
-          { text: "React", link: "/series/frontend/react"  },
-          { text: "Flutter", link: "/series/frontend/flutter"  },
-          { text: "Electron", link: "/series/frontend/electron"  },
+          { text: "Vue", link: "/series/frontend/vue" },
+          { text: "React", link: "/series/frontend/react" },
+          { text: "Flutter", link: "/series/frontend/flutter" },
+          { text: "Electron", link: "/series/frontend/electron" },
 
         ],
       },
