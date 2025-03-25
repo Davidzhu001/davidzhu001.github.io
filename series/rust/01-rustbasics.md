@@ -61,7 +61,7 @@ date: 2024-12-05 15:32:51
 
 1. Integers
 2. Floats
-3. Chars
+3. Chars ''
 4. Boolean
 
 
@@ -98,7 +98,7 @@ fn main() {
 
 ### Compound Data Types
 
-1. &str and String 
+1. &str and String  ""
 2. Arrays 固定的集合
 3. Vectors 非固定的集合
 4. Tuples 是一种可以包含不同类型元素的固定大小集合。
@@ -166,5 +166,73 @@ fn multiplication(num1: i32, num2: i32) -> i32 {
 
 fn basic_math(num1: i32, num2: i32) -> (i32, i32, i32) {
     (num1 * num2, num1 + num2, num1 - num2)
+}
+```
+
+## Conditions 
+
+```rs
+
+fn main() {
+    let num = 40;
+    if num < 50 {
+        println!("The number is less than 50");
+    } else {
+        println!("The number is greater than or equal to 50");
+    }
+
+    let marks = 95;
+    //let mut grade = 'N';
+
+    let grade = if marks >= 90 {
+        'A'
+    } else if marks >= 80 {
+        'B'
+    } else if marks >= 70 {
+        'C'
+    } else {
+        'F'
+    };
+
+    let marks = 95;
+    //let mut grade = 'N';
+
+    // 90..=100 表达range
+    let grade = match marks {
+        90..=100 => 'A',
+        80..=89 => 'B',
+        70..=79 => 'C',
+        _ => 'F',
+    };
+}
+
+```
+
+## Loops / Control Flow
+
+```rs 
+fn main() {
+    //loop的标签；
+    'outer: loop {
+        loop {
+            println!("Inner loop");
+            break 'outer; // 跳出外层的循环
+        }
+    }
+
+    let a = loop {
+        break 5;
+    };
+
+    let vec = vec![45, 30, 85, 90, 41, 39];
+
+    for i in vec {
+        println!("{i}");
+    }
+
+    let mut num = 0;
+    while num < 10 {
+        num = num + 1;
+    }
 }
 ```
