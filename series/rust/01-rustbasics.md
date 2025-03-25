@@ -1,6 +1,6 @@
 ---
 title: 1. Rust Basics
-date: 2024-12-04 15:32:51
+date: 2024-12-05 15:32:51
 ---
 
 ##  Variables && Constance
@@ -53,6 +53,12 @@ date: 2024-12-04 15:32:51
 ### Primitive Data Types
 ####  Scalar Data Types
 
+:::info 
+使用 signed 类型时，可以处理负数，适合需要表示负值的场景。
+
+使用 unsigned 类型时，可以获得更大的正数范围，适合只需要非负值的场景。
+:::
+
 1. Integers
 2. Floats
 3. Chars
@@ -92,10 +98,10 @@ fn main() {
 
 ### Compound Data Types
 
-1. &str and String
-2. Arrays
-3. Vectors
-4. Tuples
+1. &str and String 
+2. Arrays 固定的集合
+3. Vectors 非固定的集合
+4. Tuples 是一种可以包含不同类型元素的固定大小集合。
 5. Empty Tuple
 
 ```rs
@@ -123,5 +129,42 @@ fn main() {
     let (salary, salary_value, age, age_value) = my_info;
 
     let unit = ();
+}
+```
+
+## Function and Code Block
+
+Code Block 不可复用， 不能传参；
+
+
+```rs
+fn main() {
+    my_fn("This is my function");
+    let str = "Function call with a variable";
+    my_fn(str);
+
+    let answer = multiplication(10, 15);
+
+    let result = basic_math(10, 15);
+    let (multiplication, addition, subtraction) = basic_math(10, 15);
+
+    let full_name = {
+        let first_name = "Nouman";
+        let last_name = "Azam";
+        format!("{first_name} {last_name}")
+    };
+}
+
+fn my_fn(s: &str) {
+    println!("{s}");
+}
+
+fn multiplication(num1: i32, num2: i32) -> i32 {
+    println!("Computing multiplication");
+    num1 * num2
+}
+
+fn basic_math(num1: i32, num2: i32) -> (i32, i32, i32) {
+    (num1 * num2, num1 + num2, num1 - num2)
 }
 ```
