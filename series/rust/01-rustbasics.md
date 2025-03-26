@@ -3,28 +3,36 @@ title: 1. Rust Basics
 date: 2024-12-05 15:32:51
 ---
 
-##  Variables && Constance
+## Variables && Constance
 
 ### Variables
+
 1. Definition
+
     ```rs
         let x = 10;
         let x: i16 = 10;
         println!("x is {x}");
     ```
+
 2. Mutability
+
     ```rs
         let mut y = 5;
         y = 10;
     ```
+
 3. Scope
+
     ```rs
         {
             let z = 50;
         }
     ```
+
 4. Shadowing
-    ```rs
+
+```rs
         // Shadowing
         let t = 10;
         let t = t + 10;
@@ -39,11 +47,11 @@ date: 2024-12-05 15:32:51
             println!("inner v is: {v}");
         }
         println!("v is: {v}");
-    ```
+```
+
 ### Constants
 
-
- ```rs
+```rs
     // Constants
     const MAX_VALUE: u32 = 100;
 ```
@@ -51,9 +59,10 @@ date: 2024-12-05 15:32:51
 ## DataTypes
 
 ### Primitive Data Types
-####  Scalar Data Types
 
-:::info 
+#### Scalar Data Types
+
+:::info
 使用 signed 类型时，可以处理负数，适合需要表示负值的场景。
 
 使用 unsigned 类型时，可以获得更大的正数范围，适合只需要非负值的场景。
@@ -63,7 +72,6 @@ date: 2024-12-05 15:32:51
 2. Floats
 3. Chars ''
 4. Boolean
-
 
 ```rs
 fn main() {
@@ -136,7 +144,6 @@ fn main() {
 
 Code Block 不可复用， 不能传参；
 
-
 ```rs
 fn main() {
     my_fn("This is my function");
@@ -169,7 +176,7 @@ fn basic_math(num1: i32, num2: i32) -> (i32, i32, i32) {
 }
 ```
 
-## Conditions 
+## Conditions
 
 ```rs
 
@@ -210,7 +217,7 @@ fn main() {
 
 ## Loops / Control Flow
 
-```rs 
+```rs
 fn main() {
     //loop的标签；
     'outer: loop {
