@@ -6,6 +6,7 @@ date: 2024-12-04 15:32:51
 ## Rust Resources list
 
 ### Basic
+
 Resources Covering Basic Concepts of the Language
 
  1. Rust Programming Language
