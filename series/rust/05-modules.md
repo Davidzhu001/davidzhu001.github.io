@@ -5,6 +5,8 @@ date: 2024-12-05 15:32:51
 
 ## Moudles
 
+Package -> Crates -> Mods
+
 ```rs
 // use crate::product::category;
 mod product {
