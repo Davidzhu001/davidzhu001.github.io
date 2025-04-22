@@ -33,23 +33,8 @@ export default defineUserConfig({
 
     navbar: [
       { text: "Home", link: "/" },
-      { text: "GameDev", link: "/series/gamedev/00.unreal-basics/00-math.md" },
-      {
-        text: "Learning Note",
-        children: [
-          { text: "Ruby on Rails", link: "/series/frontend/vue" },
-          { text: "Golang", link: "/series/frontend/react" },
-          { text: "Rust", link: "/series/rust/00-resources.md" },
-          { text: "C++", link: "/series/frontend/electron" },
-          { text: "Java", link: "/series/frontend/electron" },
-          { text: "Vue", link: "/series/frontend/vue" },
-          { text: "React", link: "/series/frontend/react" },
-          { text: "Flutter", link: "/series/frontend/flutter" },
-          { text: "Electron", link: "/series/frontend/electron" },
-
-        ],
-      },
-      { text: "Blogs", link: "/series/gamedev/gamedev.md" },
+      { text: "GameDev", link: "/series/gamedev/00.unreal-basics/1-Outline.md" },
+      { text: "Devlogs", link: "/series/devlogs/readme.md" },
       { text: "Resources", link: "/series/gamedev/gamedev.md" },
     ],
 
