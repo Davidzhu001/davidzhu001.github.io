@@ -33,7 +33,7 @@ export default defineUserConfig({
 
     navbar: [
       { text: "Home", link: "/" },
-      { text: "GameDev", link: "/series/gamedev/00.unreal-basics/1-Outline.md" },
+      { text: "GameDev", link: "/series/gamedev/" },
       { text: "Devlogs", link: "/series/devlogs/readme.md" },
       { text: "Resources", link: "/series/gamedev/gamedev.md" },
     ],
