@@ -21,7 +21,6 @@ I don't know if these reasons are good engough but I decided to learn! Nothing c
 Nov.2024-Jan.2025. 
 
 <img src="/certs/IBM-AI.png" />
-<img src="/certs/DUKE-Rust.png" />
 
 
 Finnally finished my first Ai course. Still feel Don't know much about it, but as least give me a clear concept of what the heck ai is:
