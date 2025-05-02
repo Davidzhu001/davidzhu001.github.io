@@ -35,7 +35,9 @@ export default defineUserConfig({
       { text: "Home", link: "/" },
       { text: "GameDev", link: "/series/gamedev/" },
       { text: "Devlogs", link: "/series/devlogs/readme.md" },
-      { text: "Resources", link: "/series/gamedev/gamedev.md" },
+      { text: "AI World", link: "/series/ais/" },
+
+      { text: "Resources", link: "/series/resources/" },
     ],
 
   }),
