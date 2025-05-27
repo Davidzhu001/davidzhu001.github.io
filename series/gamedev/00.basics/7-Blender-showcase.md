@@ -58,4 +58,8 @@ date: 2024-12-04 15:32:51
             <h3><strong>油桶/SP</strong></h3>
             <img src="/blender/pt-bucket.png" alt="油桶/SP">
         </div>
+        <div class="item">
+            <h3><strong>古代路灯</strong></h3>
+            <img src="/blender/latin.png" alt="油桶/SP">
+        </div>
     </div>
