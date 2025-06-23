@@ -1,7 +1,8 @@
 ---
-title: 5. Dialogue Component 蓝图调用手册
+title: 4. Dialogue Component 蓝图调用手册
 date: 2023-12-24 15:32:51
 ---
+# UUbsDialogue 蓝图调用手册
 
 ## 概述
 
