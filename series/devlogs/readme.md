@@ -17,8 +17,3 @@ date: 2024-12-04 15:32:51
 Recently, I’ve started reviewing all my blog posts. Some no longer seem relevant or appropriate, so I plan to delete them and refine the remaining ones.  
 
 最近，我开始重新审查所有博客。有些内容似乎不再合适，因此我计划删除它们，并优化剩下的部分。
-
-
-## 📒 Certs
-
-<img src="/certs/DUKE-Rust.png" />
